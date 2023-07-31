@@ -1,39 +1,42 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { useState  } from 'react'
 import { setName } from '../store/slices/name.slice'
-
 
 
 const Home = () => {
 
-  
+  const [ userName, setUserName] = useState("")
 
-      const submit = (e) => {
-        e.preventDefault()
-       console.log(e)
-      }
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
-      const succesfullRegister = () => {
-        if(trainer !== null){
-          navigate('/pokemon')
-        } else {
-         alert('Introduce your name')
+     const submit = (e) => {
+      e.preventDefault()
+      
+      if(userName !== "" ){
+        dispatch( setName(userName))
+        navigate('/pokedex')
+        localStorage.setItem("userName", userName)
+      } else {
+        alert('Introduce your name')
         }
       }
+
+      
     return (
         <main>
             <h1>Bienvenido a esta Pokedex</h1>
             <form onSubmit={submit}>
               <label htmlFor='nameId'>Give your name to start</label>
-            <input name="trainer" type='text' id="nameId" placeholder='Type your name' ></input>
+            <input value={userName} onChange={e => setUserName(e.target.value)} type='text' id="nameId" placeholder='Type your name' />
             <button type='submit'>Click</button>
             </form>
            
-            <Link to="/pokemon">Ir al listado de pokemones</Link>
 
-            <Link to="/pokemon">
-                <button>Ir al listado</button>
-            </Link>
+
+           
+            
         
           
         </main>

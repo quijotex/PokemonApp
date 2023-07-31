@@ -1,9 +1,10 @@
 import "./App.css";
 import { HashRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./Pages/Home";
-import Pokemon from "./Pages/Pokemon";
+import Pokedex from "./Pages/Pokedex";
 import PokemonDetail from "./Pages/PokemonDetail";
 import NotFound from "./Pages/NotFound";
+import ProtectedRoute from "../Components/ProtectedRoute";
 
 function App() {
   //Single Page Application (SAP)
@@ -18,11 +19,21 @@ function App() {
        
         <Routes>
         
-        <Route path="/" element={ <Home/>}></Route>
-        <Route path="/pokemon" element={ <Pokemon/>}/>
-        <Route path="/pokemon/:id" element={ <PokemonDetail/>}/>
+        <Route path="/" element={ <Home/>}/>  
 
+        <Route element={<ProtectedRoute/>}> 
+            
+          
+        </Route>
+        <Route path="/pokedex" element={ <Pokedex/>}/> 
+            <Route path="/pokedex/:id" element={ <PokemonDetail/>}/>
+
+       
         <Route path="/not_found" element={<NotFound/>}/>
+        
+
+     
+     
         </Routes>
 
      
