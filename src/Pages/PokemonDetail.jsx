@@ -4,8 +4,12 @@ import axios from "axios"
 
 const PokemonDetail = () => {
 
-    const [pokemonDetail, setPokemonDetail ] = useState({})
+    const [ pokemonDetail, setPokemonDetail ] = useState({})
     const [ seePokemon, setSeePokemon ] = useState([])
+    const [ isOpen, setIsOpen ] = useState(false)
+    const [ isUnseen, setIsUnseen ] = useState(false)
+   
+
     const navigate = useNavigate()
 
     const { id } = useParams()
@@ -18,20 +22,21 @@ const PokemonDetail = () => {
         })
     }, [])
 
-   const encounter = () => {
-        const baseURL = pokemonDetail?.location_area_encounters
-    axios
-    .get(baseURL)
-    .then(resp => setSeePokemon(resp?.data))
-    .catch(error => console.error(error))
-
-    if(seePokemon.length !== 0){
-        console.log(seePokemon)
-    } else {
-        alert("It has never seen before in wild state")
+    
+   const encounter = () => {  
+    const baseURL = pokemonDetail?.location_area_encounters
+    let quick = []
+        axios
+        .get(baseURL)
+        .then(resp => {quick = resp?.data; setSeePokemon(quick)}).then(() => {
+           if(quick.length === 0){
+            setIsUnseen(true)
+            } else { 
+            setIsOpen(true)}
+           })
+        .catch(error => console.error(error))
     }
-   }
-
+   
     return(
         <main>
             <h2>{pokemonDetail?.name} </h2>
@@ -50,8 +55,19 @@ const PokemonDetail = () => {
             <ul>Movements: {pokemonDetail?.moves?.map(move => 
                 <li key={move?.move?.name}>{move?.move?.name}</li>)}
             </ul>
+          
             <button onClick={encounter}>Encounters</button>
-            
+            <div className={`modal ${isOpen? "is-Open" : "" }`} >
+                <button onClick={() => setIsOpen(false)}>x</button>
+                <ul>{seePokemon.map(see => <li key={see?.location_area?.url}>{see?.location_area?.name}</li>)}</ul>
+            </div>
+            <div className={`unseen ${isUnseen? "is-Unseen" : ""}`}>
+                <button onClick={() => setIsUnseen(false)}>x</button>
+                <p >It has never seen before in wild state</p>
+            </div>
+            <ul>Appeareances in those game versions: {pokemonDetail?.game_indices?.map(game => 
+                <li key={game?.version?.name}>{game?.version?.name}</li>)}
+            </ul>
        </main>
     )
 }

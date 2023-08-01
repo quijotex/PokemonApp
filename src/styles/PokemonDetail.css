@@ -1,0 +1,18 @@
+.modal, .unseen  {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    background-color: #80808081;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal.is-Open{
+      display: flex;
+      flex-direction: column;
+  }
+  .unseen.is-Unseen{
+      display: flex;
+  }

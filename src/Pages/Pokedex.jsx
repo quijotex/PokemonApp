@@ -9,7 +9,7 @@ const Pokedex = () => {
 
 useEffect(() => {
     axios
-    .get("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0")
+    .get("https://pokeapi.co/api/v2/pokemon?limit=128&offset=0")
     .then(resp => setPokemonList(resp?.data?.results))
     
     .catch(error => console.error(error))
