@@ -1,4 +1,4 @@
-import { useParams, useNavigate, Link  } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
 
@@ -13,6 +13,7 @@ const PokemonDetail = () => {
     const navigate = useNavigate()
 
     const { id } = useParams()
+    
     useEffect(() => {
         axios
         .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
@@ -65,7 +66,8 @@ const PokemonDetail = () => {
                 <button onClick={() => setIsUnseen(false)}>x</button>
                 <p >It has never seen before in wild state</p>
             </div>
-            <ul>Appeareances in those game versions: {pokemonDetail?.game_indices?.map(game => 
+            <ul>Appeareances in those game versions: 
+                {pokemonDetail?.game_indices?.map(game => 
                 <li key={game?.version?.name}>{game?.version?.name}</li>)}
             </ul>
        </main>

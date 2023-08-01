@@ -26,19 +26,12 @@ const Home = () => {
       
     return (
         <main>
-            <h1>Bienvenido a esta Pokedex</h1>
+            <h1>Hello trainer!</h1>
             <form onSubmit={submit}>
               <label htmlFor='nameId'>Give your name to start</label>
             <input value={userName} onChange={e => setUserName(e.target.value)} type='text' id="nameId" placeholder='Type your name' />
             <button type='submit'>Click</button>
             </form>
-           
-
-
-           
-            
-        
-          
         </main>
     )
 }

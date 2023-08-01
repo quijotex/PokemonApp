@@ -5,16 +5,21 @@ import { Link } from 'react-router-dom'
 const PokemonCard = ( { url }) => {
 
     const [ pokemonDetail, setPokemonDetail ] = useState({})
+   
 
 useEffect(() => {
+
     axios
     .get(url)
     .then(resp => setPokemonDetail(resp?.data))
     .catch(error => console.error(error))
+
 }, [])
   
+
     return(
         <main>
+        
         <Link to={`/pokedex/${pokemonDetail.id}`}>
         <h2>{pokemonDetail?.name}</h2>
         
@@ -29,7 +34,9 @@ useEffect(() => {
         <p>Defense: {pokemonDetail?.stats?.[2]?.base_stat}</p>
         <p>Speed: {pokemonDetail?.stats?.[5]?.base_stat}</p>
         <img src={pokemonDetail?.sprites?.other?.['official-artwork']?.front_default} alt=""/>
-        </Link>
+        </Link> 
+
+    
         </main>
     )
 }
