@@ -1,5 +1,7 @@
 @import url(/src/styles/PokemonDetail.css);
 @import url(/src/styles/Pagination.css);
+@import url(/src/styles/Pokedex.css);
+
 * {
   margin: 0;
   padding: 0;

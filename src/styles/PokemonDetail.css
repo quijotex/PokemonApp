@@ -11,8 +11,15 @@
   }
   .modal.is-Open{
       display: flex;
-      flex-direction: column;
   }
   .unseen.is-Unseen{
       display: flex;
+  }
+  .encounters {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 10px;
+    gap: 20px;
+   
   }

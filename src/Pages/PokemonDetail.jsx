@@ -53,6 +53,10 @@ const PokemonDetail = () => {
             <ul>Abilities: {pokemonDetail?.abilities?.map(ability => 
                 <li key={ability?.ability?.name}>{ability?.ability?.name}</li>)}
             </ul>
+            <p>hp: {pokemonDetail?.stats?.[0]?.base_stat}</p>
+            <p>Attack: {pokemonDetail?.stats?.[1]?.base_stat}</p>
+            <p>Defense: {pokemonDetail?.stats?.[2]?.base_stat}</p>
+            <p>Speed: {pokemonDetail?.stats?.[5]?.base_stat}</p>
             <ul>Movements: {pokemonDetail?.moves?.map(move => 
                 <li key={move?.move?.name}>{move?.move?.name}</li>)}
             </ul>
@@ -60,7 +64,7 @@ const PokemonDetail = () => {
             <button onClick={encounter}>Encounters</button>
             <div className={`modal ${isOpen? "is-Open" : "" }`} >
                 <button onClick={() => setIsOpen(false)}>x</button>
-                <ul>{seePokemon.map(see => <li key={see?.location_area?.url}>{see?.location_area?.name}</li>)}</ul>
+                <ul className="encounters">{seePokemon.map(see => <li key={see?.location_area?.url}>{see?.location_area?.name}</li>)}</ul>
             </div>
             <div className={`unseen ${isUnseen? "is-Unseen" : ""}`}>
                 <button onClick={() => setIsUnseen(false)}>x</button>

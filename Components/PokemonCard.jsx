@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const PokemonCard = ( { url }) => {
-
-    const [ pokemonDetail, setPokemonDetail ] = useState({})
+//PokemonCard or SearchByName's state
+const [ pokemonDetail, setPokemonDetail ] = useState({})
+    
    
 
 useEffect(() => {

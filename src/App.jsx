@@ -11,6 +11,7 @@ import Config from "./Pages/Config";
 function App() {
 
   const [ pokemonsPerPage, setPokemonsPerPage ] = useState(20)
+  
 
   return (
     <>

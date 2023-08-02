@@ -1,6 +1,6 @@
 .pagination-num {
     display: flex;
+    flex-wrap: wrap;
     gap: 5px;
     list-style: none;
-    
 }
