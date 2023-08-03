@@ -1,6 +1,10 @@
 import { useParams, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+import Container from "react-bootstrap/Container"
+import logo from "../assets/Images/Logo.png"
 
 const PokemonDetail = () => {
 
@@ -40,11 +44,29 @@ const PokemonDetail = () => {
    
     return(
         <main>
-            <h2>{pokemonDetail?.name} </h2>
+            <Container>
+            <div className='pokedex__spinner'/>
+            <Row>
+                <img src={logo} alt=""/>
+                <Col lg={10}>
+            
             <img src={pokemonDetail?.sprites?.other?.['official-artwork']?.front_default} alt=""/>
+            <h2>{pokemonDetail?.name} </h2>
             <h3>Height: {pokemonDetail?.height}</h3>
-            <h3>Weight: {pokemonDetail?.weight}</h3>
             <p># {pokemonDetail?.id}</p>
+            <h3>Weight: {pokemonDetail?.weight}</h3>
+            </Col>
+            <Col lg={2}>
+            <button onClick={encounter}>Encounters</button>
+            <div className={`modal ${isOpen? "is-Open" : "" }`} >
+                <button onClick={() => setIsOpen(false)}>x</button>
+                <ul className="encounters">{seePokemon.map(see => <li key={see?.location_area?.url}>{see?.location_area?.name}</li>)}</ul>
+            </div>
+            <div className={`unseen ${isUnseen? "is-Unseen" : ""}`}>
+                <button onClick={() => setIsUnseen(false)}>x</button>
+                <p >It has never seen before in wild state</p>
+            </div>
+            </Col>
             <ul>Type: 
                 {pokemonDetail?.types?.map(type => 
                 <li key={type?.type?.name}>{type?.type?.name}</li>)}
@@ -61,19 +83,13 @@ const PokemonDetail = () => {
                 <li key={move?.move?.name}>{move?.move?.name}</li>)}
             </ul>
           
-            <button onClick={encounter}>Encounters</button>
-            <div className={`modal ${isOpen? "is-Open" : "" }`} >
-                <button onClick={() => setIsOpen(false)}>x</button>
-                <ul className="encounters">{seePokemon.map(see => <li key={see?.location_area?.url}>{see?.location_area?.name}</li>)}</ul>
-            </div>
-            <div className={`unseen ${isUnseen? "is-Unseen" : ""}`}>
-                <button onClick={() => setIsUnseen(false)}>x</button>
-                <p >It has never seen before in wild state</p>
-            </div>
+           
             <ul>Appeareances in those game versions: 
                 {pokemonDetail?.game_indices?.map(game => 
                 <li key={game?.version?.name}>{game?.version?.name}</li>)}
             </ul>
+            </Row>
+            </Container>
        </main>
     )
 }

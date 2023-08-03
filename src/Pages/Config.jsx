@@ -17,7 +17,7 @@ const goBack = () => {
 
     return(
         <div className="settings">
-            <button onClick={goBack}><i class='bx bx-arrow-back' ></i></button>
+            <button onClick={goBack}>Back</button>
             <h1>Settings</h1>
             <div className="settings__items">
          <label htmlFor="adjustPage">Pokémons per page:</label>

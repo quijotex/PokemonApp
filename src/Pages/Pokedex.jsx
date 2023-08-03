@@ -27,6 +27,10 @@ const Pokedex = ({ pokemonsPerPage }) => {
 //Executing useNavigate
     const navigate = useNavigate()
 
+//Exit button
+    const goBack = () => {
+        navigate(-1)
+    }
 
     useEffect(() => {
 
@@ -58,6 +62,9 @@ const configPage = () => {
 
     return(
         <main className='pokedex'>
+            <div className='pokedex__exit'>
+                <button onClick={goBack}><i className='bx bx-log-in bx-md' ></i></button>
+            </div>
           <div className='pokedex__spinner'/>
             <h1 className='pokedex__title'>Pokédex</h1>
             <p className='pokedex__subtitle'>Welcome <strong>{user}</strong>, here you can find your favorite Pokémon</p>
@@ -82,7 +89,7 @@ const configPage = () => {
                     </li> )
                 }
             </ul>
-            <button className="config" onClick={configPage}><i class='bx bx-cog bx-md' ></i></button>
+            <button className="config" onClick={configPage}><i className='bx bx-cog bx-md' ></i></button>
             <div className={ `pagination ${isName? "is-Invisible" : ""}`}>
                 <Paginate pokemonsPerPage={pokemonsPerPage} totalPokemons=    {pokemonList.length } setCurrentPage={setCurrentPage} totalPokemonsType={pokemonType.length} isPaginated={isPaginated}/>
             </div>  
