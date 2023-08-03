@@ -1,25 +1,31 @@
+import { useState } from 'react'
 
-const PokemonByName = ({ setName, setIsName, pokemonList}) => {
- 
-   const submit = (e) => {
-    e.preventDefault()
 
+const PokemonByName = ({ setName, setIsName, pokemonList }) => {
+    const [ nameType, setNameType ] = useState("")
+   
+
+   const searchName = () => {
+
+    const pokemon = nameType.toLocaleLowerCase()
     for(let i = 0; i < pokemonList.length; i++){
-        if(pokemonList[i].name === e.target.value){
-            setName(pokemonList[i].url)
-            setIsName(true)
+        if(pokemonList[i].name === pokemon){
+           setName(pokemonList[i].url);  
+           setIsName(true);
         }
+        
     }
-
+  setNameType("")
    }
 
+   console.log(nameType)
 
     return(
         <>
-        <form onSubmit={submit}>
-        <input  type="text" placeholder="Type Pokemon's name" onChange={(e) => submit(e)}/>
-        <button type="submit">Search</button>
-        </form>
+       
+        <input  type="text" name='pokemon' placeholder="Type Pokemon's name" value={nameType} onChange={(e) => setNameType(e.target.value)}/>
+        <button onClick={searchName}>Search</button>
+      
 
        
         </>

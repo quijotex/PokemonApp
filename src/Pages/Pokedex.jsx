@@ -5,6 +5,7 @@ import PokemonCard from '../../Components/PokemonCard'
 import Pagination from '../../Components/Pagination'
 import PokemonTypes from '../../Components/PokemonTypes'
 import PokemonByName from '../../Components/PokemonByName'
+import ButtonSwitch from '../../Components/ButtonSwitch'
 
 const Pokedex = ({ pokemonsPerPage }) => {
 
@@ -20,6 +21,8 @@ const Pokedex = ({ pokemonsPerPage }) => {
 //Either types or all pokemons
     const [ isPokemonType, setIsPokemonType ] = useState(true)
     const [ pokemonType, setPokemonType ] = useState([])
+//Render searchers
+    const [isOn, setIsOn] = useState(false);
 
 //Executing useNavigate
     const navigate = useNavigate()
@@ -65,14 +68,14 @@ const configPage = () => {
       <Pagination pokemonsPerPage={pokemonsPerPage} totalPokemons={pokemonList.length } paginate={paginate} totalPokemonsType={pokemonType.length} isPaginated={isPaginated}/>
       </div>  
 
-        <div>
-            <span>
-                <PokemonTypes setIsPokemonType={setIsPokemonType} setPokemonType={setPokemonType} setIsPaginated={setIsPaginated}/>
-           </span>
-           <span>
-                <PokemonByName setIsName={setIsName} setName={setName} pokemonList={pokemonList}/>
-           </span>
-        </div>
+           <h2>Type</h2> 
+           <ButtonSwitch setIsOn={setIsOn} isOn={isOn}/>
+           <h2>Pokemon</h2>
+        {isOn? 
+         <PokemonByName setIsName={setIsName} setName={setName} pokemonList={pokemonList} name={name}/>
+         :
+         <PokemonTypes setIsPokemonType={setIsPokemonType} setPokemonType={setPokemonType} setIsPaginated={setIsPaginated}/>           
+        }
         <ul>
             {isName? <PokemonCard url={name} /> : isPokemonType ?       currentPokemons?.map(element => 
                 <li key={element.name}>

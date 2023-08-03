@@ -1,9 +1,14 @@
 @import url(/src/styles/PokemonDetail.css);
 @import url(/src/styles/Pagination.css);
 @import url(/src/styles/Pokedex.css);
+@import url(/src/styles/ButtonSwitch.css);
+@import url(/src/styles/Home.css);
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+html {
+  height: 100vh;
 }

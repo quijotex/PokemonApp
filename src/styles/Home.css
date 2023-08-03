@@ -1,0 +1,33 @@
+.home__items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 10px;
+   
+}
+
+@keyframes rotate {from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}}
+@-webkit-keyframes rotate {from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(360deg);}}
+
+.home__pokeball  {
+    background-image: url(/pokeball.png);
+    position: fixed;
+    -webkit-filter: brightness(200%);
+    filter: brightness(200%);
+    z-index: -1;
+    right: -90px;
+    top: -40px;
+    background-size: cover;
+    height: 400px;
+    width: 400px;
+    animation-direction: reverse;
+    animation: rotate 3s linear infinite;
+    transform-origin: 50% 50%;
+}
+.items__title {
+    height: 450px;
+}
