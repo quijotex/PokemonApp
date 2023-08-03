@@ -3,6 +3,10 @@
 @import url(/src/styles/Pokedex.css);
 @import url(/src/styles/ButtonSwitch.css);
 @import url(/src/styles/Home.css);
+@import url(/src/styles/PokemonCard.css);
+@import url(/src/styles/SearchByName.css);
+@import url(/src/styles/PokemonTypes.css);
+@import url(/src/styles/Config.css);
 
 * {
   margin: 0;

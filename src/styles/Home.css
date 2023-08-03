@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    gap: 10px;
+    gap: 20px;
    
 }
 
@@ -30,4 +30,43 @@
 }
 .items__title {
     height: 450px;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+.home__input {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 250px;
+}
+.home__input label {
+ font-family:'Montserrat', sans-serif;
+ text-align: center;
+ font-size: 1.2rem;
+}
+.home__input input {
+        width: 100%;
+        border: none;
+        border-radius: 30px;
+        outline: none;
+        font-size: 19px;
+        color: gray;
+        box-shadow: -10px -10px 15px #3a3a3a17,
+        10px 10px 15px #42424259;
+        transition: .5s;
+        padding: 10px 55px 10px 15px;
+        height: 50px;
+}
+.home__input button {
+  position: relative;
+  bottom: 85px;
+  left: 220px;  
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    outline: 0;
+    background: #40ff2f;
+    color: #fff;
 }

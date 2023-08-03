@@ -29,20 +29,21 @@ const PokemonTypes = ({ setIsPokemonType, setPokemonType, setIsPaginated }) => {
         .get(`https://pokeapi.co/api/v2/type/${e.target.value}`)
         .then(resp => setPokemonType(resp?.data?.pokemon))
         .catch(error => console.error(error))
-        setIsPaginated(true)
+        .finally(() =>  setIsPaginated(true))
+       
     }
   }
 
     return(
-        <>
+        <div className='select-type'>
          <select onChange={(e) => handleChange(e)}>
-            <option value="allPokemons">All Pokemons</option>
+            <option value="allPokemons">All Pokémons</option>
             {pokemonByType?.map(type => 
               <option key={type?.url} value={type?.name}>{type.name}</option>
               )
             }
         </select>
-        </>
+        </div>
     )
 }
 

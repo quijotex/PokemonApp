@@ -12,12 +12,15 @@ const Config = ({ pokemonsPerPage, setPokemonsPerPage }) => {
 //Go back to /pokedex
 
 const goBack = () => {
-    navigate('/pokedex')
+    navigate(-1)
 }
 
     return(
-        <>
-         <label htmlFor="adjustPage">See Pokemons per page:</label>
+        <div className="settings">
+            <button onClick={goBack}><i class='bx bx-arrow-back' ></i></button>
+            <h1>Settings</h1>
+            <div className="settings__items">
+         <label htmlFor="adjustPage">Pokémons per page:</label>
         <select id="adjustPage" value={pokemonsPerPage} onChange={(e) => adjustPage(e)}>
             <option value="4">4 by page</option>
             <option value="8">8 by page</option>
@@ -25,9 +28,10 @@ const goBack = () => {
             <option value="16">16 by page</option>
             <option value="20">20 by page</option>
         </select>
+        </div>
 
-        <button onClick={goBack}>Back</button>
-        </>
+       
+        </div>
     )
 
 }

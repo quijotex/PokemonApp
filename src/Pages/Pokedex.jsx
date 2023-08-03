@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PokemonCard from '../../Components/PokemonCard'
-import Pagination from '../../Components/Pagination'
+import Paginate from '../../Components/Paginate'
 import PokemonTypes from '../../Components/PokemonTypes'
 import PokemonByName from '../../Components/PokemonByName'
 import ButtonSwitch from '../../Components/ButtonSwitch'
@@ -49,48 +49,43 @@ const Pokedex = ({ pokemonsPerPage }) => {
 const currentPokemonsType = pokemonType.slice(indexOfFirstPokemon, indexOfLastPokemon)
 
  //Change page
- const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
 
 //Redirect config page
 const configPage = () => {
         navigate('/pokedex/config')
 }
 
-
     return(
-        <main>
-
-            <h1>Pokedex</h1>
-          <h2>Welcome {user}, here you can find your favorite pokemon</h2>
-
-       
-      <div className={ `pagination ${isName? "is-Invisible" : ""}`}>
-      <Pagination pokemonsPerPage={pokemonsPerPage} totalPokemons={pokemonList.length } paginate={paginate} totalPokemonsType={pokemonType.length} isPaginated={isPaginated}/>
-      </div>  
-
-           <h2>Type</h2> 
-           <ButtonSwitch setIsOn={setIsOn} isOn={isOn}/>
-           <h2>Pokemon</h2>
-        {isOn? 
-         <PokemonByName setIsName={setIsName} setName={setName} pokemonList={pokemonList} name={name}/>
-         :
-         <PokemonTypes setIsPokemonType={setIsPokemonType} setPokemonType={setPokemonType} setIsPaginated={setIsPaginated}/>           
-        }
-        <ul>
-            {isName? <PokemonCard url={name} /> : isPokemonType ?       currentPokemons?.map(element => 
-                <li key={element.name}>
-                    <PokemonCard url={element.url}/>
-                </li>) : 
-                currentPokemonsType?.map(type => 
-                <li key={type?.pokemon?.url}>
-                <PokemonCard url={type?.pokemon?.url}/>
-                 </li> )
+        <main className='pokedex'>
+          <div className='pokedex__spinner'/>
+            <h1 className='pokedex__title'>Pokédex</h1>
+            <p className='pokedex__subtitle'>Welcome <strong>{user}</strong>, here you can find your favorite Pokémon</p>
+        <div className='container-switch'>
+           <h3>Type</h3> 
+                <ButtonSwitch setIsOn={setIsOn} isOn={isOn}/>
+           <h3>Pokémon</h3>
+         </div>
+            {isOn? 
+                <PokemonByName setIsName={setIsName} setName={setName} pokemonList={pokemonList} name={name}/>
+                :
+                <PokemonTypes setIsPokemonType={setIsPokemonType} setPokemonType={setPokemonType} setIsPaginated={setIsPaginated}/>           
             }
-        </ul>
-
-            <button onClick={configPage}>Config</button>
-        
-        
+            <ul>
+                {isName? <PokemonCard url={name} /> : isPokemonType ?           currentPokemons?.map(element => 
+                    <li key={element.name}>
+                        <PokemonCard url={element.url}/>
+                    </li>) : 
+                    currentPokemonsType?.map(type => 
+                    <li key={type?.pokemon?.url}>
+                    <PokemonCard url={type?.pokemon?.url}/>
+                    </li> )
+                }
+            </ul>
+            <button className="config" onClick={configPage}><i class='bx bx-cog bx-md' ></i></button>
+            <div className={ `pagination ${isName? "is-Invisible" : ""}`}>
+                <Paginate pokemonsPerPage={pokemonsPerPage} totalPokemons=    {pokemonList.length } setCurrentPage={setCurrentPage} totalPokemonsType={pokemonType.length} isPaginated={isPaginated}/>
+            </div>  
         </main>
     )
 } 

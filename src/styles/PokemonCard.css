@@ -1,0 +1,60 @@
+.img-poke {
+    width: 100px;
+    height: 150px;
+    position: relative;
+}
+.img-poke--over {
+    right: 20px;
+    top: 160px;
+    right: 100px;
+    z-index: 10;
+}
+.img-poke--ball {
+    width: 110px;
+    top: 140px;
+    left: 4px;
+    -webkit-filter: brightness(200%);
+    filter: brightness(200%);
+}
+.link {
+    text-decoration: none;
+    color:  white;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    width: 250px;
+    background: green;
+    font-size: 1rem;
+    padding-left: 15px;
+    padding-top: 15px;
+    border-radius: 20px; 
+    height: 340px;
+    text-shadow: 0 0 1.4px #000;
+}
+.link h2 {
+    font-size: 1rem;
+}
+ul .types {
+    gap: 5px;
+    padding: 0px;
+    margin: 0px;
+    justify-content: flex-start;
+}
+ul .circle {
+    background: hsla(0,0%,100%,.2);
+    margin-bottom: 3px;
+    padding: 4px 10px;
+    border-radius: 13px;
+}
+ul .circle--small {
+    width: 90px;
+}
+ul .circle--medium {
+    width: 120px;
+}
+.background-img {
+    position: relative;
+    z-index: 1;
+}
+.pokemon-card__text span {
+    font-weight: 800;
+}
