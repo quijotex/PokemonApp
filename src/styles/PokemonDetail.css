@@ -22,3 +22,44 @@
     padding: 10px;
     gap: 20px;
   }
+
+
+.pokemon-detail__spinner  {
+  background-image: url(/src/assets/Images/pokeball.png);
+  position: fixed;
+  -webkit-filter: brightness(200%);
+  filter: brightness(200%);
+  z-index: -1;
+  right: -90px;
+  top: -40px;
+  background-size: cover;
+  height: 400px;
+  width: 400px;
+  animation-direction: reverse;
+  animation: rotate 3s linear infinite;
+  transform-origin: 50% 50%;
+}
+.col {
+  border: 1px solid orange;
+}
+.col-sm {
+  height: 60px;
+}
+.row-info {
+  height: 700px;
+}
+.col-info {
+  height: 700px;
+}
+.row-type {
+  height: 200px;
+}
+.col-size {
+
+  height: 200px;
+}
+.encounter-games {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

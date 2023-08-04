@@ -45,49 +45,71 @@ const PokemonDetail = () => {
     return(
         <main>
             <Container>
-            <div className='pokedex__spinner'/>
+            <div className='pokemon-detail__spinner'/>
             <Row>
-                <img src={logo} alt=""/>
-                <Col lg={10}>
+             <img src={logo} alt=""/>
+                <Row className="row-info">
+                    <Col className="col col-info" lg={10}>
+                    
+                        <img src={pokemonDetail?.sprites?.other?.['official-artwork']?.front_default} alt=""/>
+                        <h2>{pokemonDetail?.name} </h2>
+                        <h3>Height: {pokemonDetail?.height}</h3>
+                        <p># {pokemonDetail?.id}</p>
+                        <h3>Weight: {pokemonDetail?.weight}</h3>
+                    </Col>
+                    <Col className="col" lg={2}> 
+                   <div className="encounter-games">
+                        <div className="encounter-info">
+                            <button onClick={encounter}>Encounters</button>
+                            <div className={`modal ${isOpen? "is-Open" : "" }`} >
+                                <button onClick={() => setIsOpen(false)}>x</button>
+                                <ul className="encounters">{seePokemon.map(see => <li key={see?.location_area?.url}>{see?.location_area?.name}</li>)}</ul>
+                            </div>
+                            <div className={`unseen ${isUnseen? "is-Unseen" : ""}`}>
+                                <button onClick={() => setIsUnseen(false)}>x</button>
+                                <p >It has never seen before in wild state</p>
+                            </div>
+                        </div>
+                        <div className="games-info">
+                        <ul>Appeareances in those game versions: 
+                            {pokemonDetail?.game_indices?.map(game => 
+                            <li key={game?.version?.name}>{game?.version?.name}</li>)}
+                        </ul>
+                        </div>
+                     </div>
+                    </Col>
+                   
+                </Row>
+                <Row className="row-type">
+                    <Col className="col col-size" lg={5}>
+                        <ul>Type: 
+                            {pokemonDetail?.types?.map(type => 
+                            <li key={type?.type?.name}>{type?.type?.name}</li>)}
+                        </ul>
+                    </Col >
+                    <Col className="col col-size" lg={5}>
+                        <ul>Abilities: {pokemonDetail?.abilities?.map(ability => 
+                            <li key={ability?.ability?.name}>{ability?.ability?.name}</li>)}
+                        </ul>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col className="col" lg={10}>
+                        <p>hp: {pokemonDetail?.stats?.[0]?.base_stat}</p>
+                        <p>Attack: {pokemonDetail?.stats?.[1]?.base_stat}</p>
+                        <p>Defense: {pokemonDetail?.stats?.[2]?.base_stat}</p>
+                        <p>Speed: {pokemonDetail?.stats?.[5]?.base_stat}</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col  className="col" lg={10}>
+                        <ul>Movements: {pokemonDetail?.moves?.map(move => 
+                        <li key={move?.move?.name}>{move?.move?.name}</li>)}
+                        </ul>
+                
+                    </Col>
+                </Row>
             
-            <img src={pokemonDetail?.sprites?.other?.['official-artwork']?.front_default} alt=""/>
-            <h2>{pokemonDetail?.name} </h2>
-            <h3>Height: {pokemonDetail?.height}</h3>
-            <p># {pokemonDetail?.id}</p>
-            <h3>Weight: {pokemonDetail?.weight}</h3>
-            </Col>
-            <Col lg={2}>
-            <button onClick={encounter}>Encounters</button>
-            <div className={`modal ${isOpen? "is-Open" : "" }`} >
-                <button onClick={() => setIsOpen(false)}>x</button>
-                <ul className="encounters">{seePokemon.map(see => <li key={see?.location_area?.url}>{see?.location_area?.name}</li>)}</ul>
-            </div>
-            <div className={`unseen ${isUnseen? "is-Unseen" : ""}`}>
-                <button onClick={() => setIsUnseen(false)}>x</button>
-                <p >It has never seen before in wild state</p>
-            </div>
-            </Col>
-            <ul>Type: 
-                {pokemonDetail?.types?.map(type => 
-                <li key={type?.type?.name}>{type?.type?.name}</li>)}
-            </ul>
-
-            <ul>Abilities: {pokemonDetail?.abilities?.map(ability => 
-                <li key={ability?.ability?.name}>{ability?.ability?.name}</li>)}
-            </ul>
-            <p>hp: {pokemonDetail?.stats?.[0]?.base_stat}</p>
-            <p>Attack: {pokemonDetail?.stats?.[1]?.base_stat}</p>
-            <p>Defense: {pokemonDetail?.stats?.[2]?.base_stat}</p>
-            <p>Speed: {pokemonDetail?.stats?.[5]?.base_stat}</p>
-            <ul>Movements: {pokemonDetail?.moves?.map(move => 
-                <li key={move?.move?.name}>{move?.move?.name}</li>)}
-            </ul>
-          
-           
-            <ul>Appeareances in those game versions: 
-                {pokemonDetail?.game_indices?.map(game => 
-                <li key={game?.version?.name}>{game?.version?.name}</li>)}
-            </ul>
             </Row>
             </Container>
        </main>

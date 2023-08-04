@@ -14,7 +14,7 @@
   to {-webkit-transform: rotate(360deg);}}
 
 .home__pokeball  {
-    background-image: url(/pokeball.png);
+    background-image: url(/src/assets/Images/pokeball.png);
     position: fixed;
     -webkit-filter: brightness(200%);
     filter: brightness(200%);

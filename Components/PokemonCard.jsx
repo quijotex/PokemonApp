@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Pokeball from '../public/pokeball.png'
+import Pokeball from '../src/assets/Images/pokeball.png'
 
 const PokemonCard = ( { url }) => {
 //PokemonCard or SearchByName's state
