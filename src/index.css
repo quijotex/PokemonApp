@@ -122,9 +122,6 @@ html {
     .row-info, .col-info {
       height: 350px;
     }
-    .list--size {
-      gap: 10px;
-    }
     }
  @media screen and (max-width: 375px) {
    /* responsive Search by name */

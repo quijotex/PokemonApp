@@ -143,10 +143,10 @@
 .row-type {
   display: flex;
   justify-content: space-around;
-  height: 200px;
 }
-.col-size {
-  height: 200px;
+.list--size {
+
+  gap: 10px;
 }
 .button-encounter {
   width: 200px;
