@@ -23,7 +23,7 @@ const PokemonByName = ({ setName, setIsName, pokemonList }) => {
     return(
         <>
        <div className='search-name'>
-        <input  type="text" name='pokemon' placeholder="Search by Pokémon's name" value={nameType} onChange={(e) => setNameType(e.target.value)}/>
+        <input  id="InputId" type="text" name='pokemon' placeholder="Search by Pokémon's name" value={nameType} onChange={(e) => setNameType(e.target.value)}/>
         <button onClick={searchName}><i className='bx bx-search bx-md'></i></button>
         </div>
 

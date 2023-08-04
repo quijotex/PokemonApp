@@ -29,7 +29,7 @@ const Pokedex = ({ pokemonsPerPage }) => {
 
 //Exit button
     const goBack = () => {
-        navigate(-1)
+        navigate("/")
     }
 
     useEffect(() => {

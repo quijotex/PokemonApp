@@ -40,9 +40,9 @@
     padding-top: 250px;
 }
 .home__input label {
- font-family:'Montserrat', sans-serif;
- text-align: center;
- font-size: 1.2rem;
+    font-family:'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 1.2rem;
 }
 .home__input input {
         width: 100%;

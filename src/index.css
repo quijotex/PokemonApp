@@ -16,3 +16,139 @@
 html {
   height: 100vh;
 }
+
+
+@media screen and (max-width: 768px) {
+  /* responsive Home */
+
+  .home__items {
+    gap: 0px;
+  }
+/* responsive Search by name */
+
+  .search-name {
+    width: 425px;
+  }
+
+ /*responsive Pokemon Detail*/
+
+ .container-banner {
+  margin-bottom: 100px;
+}
+.col-info img {
+  height: 400px;
+}
+.button-encounter {
+  width: 140px;
+  gap: 10px;
+  top: 80px;
+}
+.row-info, .col-info {
+  height: 450px;
+}
+}
+@media screen and (max-width: 425px) {
+
+  /*responsive Home */
+    .home__items {
+      flex-direction: column;
+    }
+    .home__input {
+      padding-top: 0px;
+      position: relative;
+      top: 30px;
+  
+    }
+    .items__title {
+      display: flex;
+      align-items: center;
+    }
+    .ash-img {
+     height: 300px;
+    }
+    /* responsive Search by name */
+    .search-name input {
+      position: relative;
+      left: 20px;
+    }
+    .search-name button {
+      right: 30px;
+    }
+     /* responsive Pokedex */
+     .pokedex {
+      padding: 10px;
+    }
+    select {
+      max-width: 300px;
+    }
+    
+    .pagination__num {
+      width: 35px;
+      height: 29px;
+      font-size: 0.8rem;
+    }
+    .settings__items {
+      width: 300px;
+      
+    }
+
+    /*responsive Pokemon Detail*/
+    .poke {
+      margin-left: 10px;
+    }
+    .container-banner {
+      margin-bottom: 0px;
+      flex-direction: column;
+      gap: 0px;
+      align-items: center;
+    }
+    .col-info img {
+      height: 190px;
+    }
+    .col__first {
+      bottom: 0px;
+    }
+    .col__first h3 {
+      font-size: 1rem;
+    }
+    .col__second {
+      bottom: 0px;
+    }
+    .button-encounter {
+      top: 0px;
+    }
+    .row-info, .col-info {
+      height: 350px;
+    }
+    .list--size {
+      gap: 10px;
+    }
+    }
+ @media screen and (max-width: 375px) {
+   /* responsive Search by name */
+   .search-name input {
+    position: relative;
+    width: 300px;
+  }
+  #InputId::placeholder {
+    font-size: 0.8rem;
+  }
+  .config, .pokedex__exit button {
+      left: 300px;
+  }
+  .poke-img {
+    width: 300px;
+  }
+  .col-info img {
+    height: 170px;
+  }
+  .encounters--text {
+   text-align: center;
+    width: 300px;
+  }
+}
+
+
+
+
+

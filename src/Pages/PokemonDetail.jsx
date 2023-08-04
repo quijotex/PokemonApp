@@ -55,7 +55,6 @@ const PokemonDetail = () => {
                         </div>
                  
             <Row className="poke">
-             
             <div className="container-banner">
                         <img className="poke-img" src={logo} alt=""/>
                         <div className="encounter-games">
@@ -68,7 +67,7 @@ const PokemonDetail = () => {
                                         </div>
                                      </div>
                                      <div className={`unseen ${isUnseen? "is-Unseen" : ""}`}>
-                                        <div className="see-none">
+                                        <div className="see-none see-none--size">
                                             <p className="encounters encounters--text">This Pokémon has never seen before in wild state</p>
                                             <button className="modals-button" onClick={() => setIsUnseen(false)}>Close</button>
                                          </div>
@@ -95,14 +94,14 @@ const PokemonDetail = () => {
                 <Row className="row-type">
                     <Col className="col col-size" lg={5}>
                     <h2 className="detail__tittle">Type</h2>
-                        <ul>
+                        <ul className="list--size">
                             {pokemonDetail?.types?.map(type => 
                             <li className="round-li" key={type?.type?.name}>{type?.type?.name}</li>)}
                         </ul>
                     </Col >
                         <Col className="col col-size" lg={5} >
                             <h2 className="detail__tittle">Abilities</h2>
-                            <ul>{pokemonDetail?.abilities?.map(ability => 
+                            <ul className="list--size">{pokemonDetail?.abilities?.map(ability => 
                                 <li className="round-li" key={ability?.ability?.name}>{ability?.ability?.name}</li>)}
                             </ul>
                         </Col>
