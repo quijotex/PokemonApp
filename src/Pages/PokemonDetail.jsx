@@ -23,9 +23,7 @@ const PokemonDetail = () => {
         axios
         .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
         .then(resp => setPokemonDetail(resp.data))
-        .catch(error => {console.error(error)
-            navigate("/not_found")
-        })
+        .catch(error => console.error(error))
     }, [])
 
     const goBack = () => {

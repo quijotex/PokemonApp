@@ -57,7 +57,9 @@ html {
       padding-top: 0px;
       position: relative;
       top: 30px;
-  
+    }
+    .home__input input {
+      box-shadow: -10px -10px 15px rgba(58,58,58,.09019607843137255), 10px 10px 15px rgba(66,66,66,.34901960784313724);
     }
     .items__title {
       display: flex;
