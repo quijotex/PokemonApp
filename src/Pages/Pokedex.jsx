@@ -30,6 +30,7 @@ const Pokedex = ({ pokemonsPerPage }) => {
 //Exit button
     const goBack = () => {
         navigate("/")
+        localStorage.removeItem('userName')
     }
 
     useEffect(() => {

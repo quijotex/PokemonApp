@@ -12,7 +12,7 @@ const Config = ({ pokemonsPerPage, setPokemonsPerPage }) => {
 //Go back to /pokedex
 
 const goBack = () => {
-    navigate(-1)
+    navigate("/pokedex")
 }
 
     return(

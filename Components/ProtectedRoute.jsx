@@ -1,5 +1,5 @@
-import { Navigate } from "react-router-dom";
-import Pokedex from "../src/Pages/Pokedex";
+import { Navigate, Outlet } from "react-router-dom";
+
 
 
 const ProtectedRoute = () => {
@@ -7,11 +7,12 @@ const ProtectedRoute = () => {
 
     const data = localStorage.getItem("userName")
  
-    if( data !== null) {
-        return <Pokedex/>
-        
-    } else {
+    if( data === null) {
         return <Navigate to="/" />
+      
+    } else {
+        return <Outlet/>
+        
     }
 
 }
