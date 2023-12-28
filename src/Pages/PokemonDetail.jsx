@@ -13,7 +13,7 @@ const PokemonDetail = () => {
     const [ seePokemon, setSeePokemon ] = useState([])
     const [ isOpen, setIsOpen ] = useState(false)
     const [ isUnseen, setIsUnseen ] = useState(false)
-   
+   const [ colorBackground, setColorBackground ] = useState({})
 
     const navigate = useNavigate()
 
@@ -22,9 +22,56 @@ const PokemonDetail = () => {
     useEffect(() => {
         axios
         .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-        .then(resp => setPokemonDetail(resp.data))
+        .then(resp => {setPokemonDetail(resp.data);
+        setColorBackground(resp?.data?.types)})
         .catch(error => console.error(error))
     }, [])
+
+    const colors = () => {
+        let color = ''
+        for(let col in colorBackground) {
+            if(colorBackground[col].slot === 1) {
+            color = colorBackground[col].type.name
+            }
+        }
+           
+           if(color === 'grass' ) {
+                return 'rgb(72, 208, 176)'
+           } else if (color === 'fire') {
+                 return 'rgb(251, 108, 108)'
+           } else if (color === 'water') {
+                return 'rgb(112, 183, 250)'
+           } else if (color === 'bug') {
+                return 'rgb(139, 195, 74)'
+           } else if(color === 'flying') {
+            return 'rgb(218,222,155)'
+            }  else if (color === 'normal') {
+                return 'rgb(115, 81, 89)'
+           } else if (color === 'poison') {
+                return 'rgb(91, 45, 134)'
+           } else if (color === 'electric') {
+                return 'rgb(226, 224, 45)'
+           } else if (color === 'fairy') {
+                return 'rgb(152, 24, 68)'
+           } else if (color === 'ground' || color === 'psychic') {
+                return 'rgb(255, 235, 59)'
+           } else if (color === 'fighting') {
+                return 'rgb(151, 63, 38)'
+           } else if (color === 'rock') {
+                return 'rgb(70, 24, 11)'
+           } else if (color === 'ghost') {
+                return 'rgb(49, 51, 106)'
+           } else if (color === 'ice') {
+                 return 'rgb(134, 210, 244)'
+           } else if ( color === 'dragon') {
+                return 'rgb(68, 138, 148)'
+           } else if (color === 'dark') {
+                return 'rgb(3, 7, 6)'
+           } else if (color === 'steel') {
+                 return 'rgb(93, 115, 108)'
+           }
+        
+        }
 
     const goBack = () => {
         navigate('/pokedex')
@@ -44,7 +91,7 @@ const PokemonDetail = () => {
     }
    
     return(
-        <main>
+        <main style={{background: `${colors()}`}}>
             <Container>
                
                         <div className='pokemon-detail__spinner'/>

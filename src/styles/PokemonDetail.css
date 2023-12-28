@@ -113,7 +113,7 @@
   align-items: flex-end;
   justify-content: center;
   position: relative;
-  bottom: 200px;
+  bottom: 100px;
 }
 .col__first h3 {
 
@@ -136,7 +136,7 @@
   text-align: center;
 }
 .col-info img {
-  height: 500px;
+  height: 400px;
   bottom: 200px;
   left: 300px;
 }

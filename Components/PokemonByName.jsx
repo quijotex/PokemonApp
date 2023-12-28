@@ -18,8 +18,6 @@ const PokemonByName = ({ setName, setIsName, pokemonList }) => {
   setNameType("")
    }
 
-   console.log(nameType)
-
     return(
         <>
        <div className='search-name'>

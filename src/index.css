@@ -17,37 +17,7 @@ html {
   height: 100vh;
 }
 
-
 @media screen and (max-width: 768px) {
-  /* responsive Home */
-
-  .home__items {
-    gap: 0px;
-  }
-/* responsive Search by name */
-
-  .search-name {
-    width: 425px;
-  }
-
- /*responsive Pokemon Detail*/
-
- .container-banner {
-  margin-bottom: 100px;
-}
-.col-info img {
-  height: 400px;
-}
-.button-encounter {
-  width: 140px;
-  gap: 10px;
-  top: 80px;
-}
-.row-info, .col-info {
-  height: 450px;
-}
-}
-@media screen and (max-width: 425px) {
 
   /*responsive Home */
     .home__items {
@@ -69,12 +39,16 @@ html {
      height: 300px;
     }
     /* responsive Search by name */
-    .search-name input {
+    .search-name {
       position: relative;
-      left: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+    
     .search-name button {
-      right: 30px;
+      position: absolute;
+      left: auto;
     }
      /* responsive Pokedex */
      .pokedex {
@@ -91,8 +65,8 @@ html {
     }
     .settings__items {
       width: 300px;
-      
     }
+   
 
     /*responsive Pokemon Detail*/
     .poke {
@@ -123,23 +97,24 @@ html {
       height: 350px;
     }
     }
- @media screen and (max-width: 375px) {
+ @media screen and (max-width: 430px) {
    /* responsive Search by name */
-   .search-name input {
-    position: relative;
-    width: 300px;
+   
+  .search-name button {
+    position: absolute;
+      left: 10px;
   }
   #InputId::placeholder {
     font-size: 0.8rem;
   }
   .config, .pokedex__exit button {
-      left: 300px;
+      right: 5px;
   }
   .poke-img {
     width: 300px;
   }
   .col-info img {
-    height: 170px;
+    height: 130px;
   }
   .encounters--text {
    text-align: center;

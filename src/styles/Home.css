@@ -5,7 +5,6 @@
     align-items: center;
     height: 100vh;
     gap: 20px;
-   
 }
 
 @keyframes rotate {from {transform: rotate(0deg);}
@@ -58,9 +57,9 @@
         height: 50px;
 }
 .home__input button {
-  position: relative;
-  bottom: 85px;
-  left: 220px;  
+    position: relative;
+    bottom: 85px;
+    left: 250px;  
     height: 60px;
     width: 60px;
     border-radius: 50%;
