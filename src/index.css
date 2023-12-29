@@ -16,7 +16,23 @@
 html {
   height: 100vh;
 }
+@media (max-width: 932px) and (orientation: landscape) { 
+/*Home*/
+.home__items {
+  gap: 0px;
+}
 
+.home__items img {
+  height: 350px;
+}
+
+.items__title {
+  height: 350px;
+
+}
+
+
+}
 @media screen and (max-width: 768px) {
 
   /*responsive Home */
@@ -97,6 +113,14 @@ html {
       height: 350px;
     }
     }
+  @media (max-width: 740px) and (orientation: landscape) { 
+      /*Home*/
+    
+      .home__items img {
+        height: 100px;
+      }
+      
+  }
  @media screen and (max-width: 430px) {
    /* responsive Search by name */
    
